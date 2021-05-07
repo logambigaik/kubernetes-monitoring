@@ -47,7 +47,7 @@ Username: elastic and password : 2ZPHE99WTlojotbx2M4jG5Py(after reset password i
 
 https://github.com/logambigaik/data-visualization-with-kibana/blob/master/adding-index-templates.md      
 
-'''
+```
 PUT /_template/access-logs
 {
   "index_patterns": ["access-logs*"],
@@ -123,7 +123,7 @@ PUT /_template/access-logs
     }
   }
 }
-'''
+```
 
 
 
