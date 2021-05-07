@@ -183,3 +183,12 @@ PUT /_template/orders
 
 # Test data:
 [TestData]{https://github.com/logambigaik/data-visualization-with-kibana/blob/master/test-data.zip}
+
+
+# Loading Data into cloud server command:
+```
+tmp cd test-data
+
+test-data curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.174.68:9200/_bullk --data-binary "@orders.bulk.ndjson"
+(folder-name)                                             (username:password)                       (cloud server)                                  (filename)          
+'''
