@@ -125,5 +125,61 @@ PUT /_template/access-logs
 }
 ```
 
+# After adding index:
 
 
+![image](https://user-images.githubusercontent.com/54719289/117516029-ce39a300-af8f-11eb-8fa8-8e104411d42a.png)
+
+
+
+
+## Index pattern for orders dataset
+```
+PUT /_template/orders
+{
+  "index_patterns": ["orders*"],
+  "settings": {
+    "index.mapping.coerce": false
+  }, 
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "@timestamp": { "type": "date" },
+      "id": { "type": "keyword" },
+      "product": {
+        "properties": {
+          "id": { "type": "keyword" },
+          "name": { "type": "keyword" },
+          "price": { "type": "float" },
+          "brand": { "type": "keyword" },
+          "category": { "type": "keyword" }
+        }
+      },
+      "customer.id": { "type": "keyword" },
+      "customer.age": { "type": "short" },
+      "customer.gender": { "type": "keyword" },
+      "customer.name": { "type": "keyword" },
+      "customer.email": { "type": "keyword" },
+      "channel": { "type": "keyword" },
+      "store": { "type": "keyword" },
+      "salesman.id": { "type": "keyword" },
+      "salesman.name": { "type": "keyword" },
+      "discount": { "type": "float" },
+      "total": { "type": "float" }
+    }
+  }
+}
+```
+
+# After that run the index template for dataset:
+
+![image](https://user-images.githubusercontent.com/54719289/117516135-1e186a00-af90-11eb-90ed-3df3a2b8e5a1.png)
+
+
+# Importing test data:
+
+![image](https://user-images.githubusercontent.com/54719289/117516284-97b05800-af90-11eb-961a-6ff89b36447b.png)
+
+
+# Test data:
+[TestData]{https://github.com/logambigaik/data-visualization-with-kibana/blob/master/test-data.zip}
