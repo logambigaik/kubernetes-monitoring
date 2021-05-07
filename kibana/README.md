@@ -184,7 +184,25 @@ PUT /_template/orders
 # Test data:
 [TestData]{https://github.com/logambigaik/data-visualization-with-kibana/blob/master/test-data.zip}
 
+'''
+# Install elasticsearch in cloudsystem and update pport 9200:
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.3-x86_64.rpm
+rpm -ivh elasticsearch-7.9.3-x86_64.rpm
+Open "elasticsearch.yml" and edit below details
 
+vi /etc/elasticsearch/elasticsearch.yml
+--------------------------------------------------
+  network.host: 0.0.0.0
+  http.port: 9200
+  discovery.type: single-node
+--------------------------------------------------
+Start the service
+
+service elasticsearch start
+Check status of Elastic Search
+
+service elasticsearch status
+'''
 # Loading Data into cloud server command:
 ```
 tmp cd test-data
@@ -192,3 +210,5 @@ tmp cd test-data
 test-data curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.174.68:9200/_bullk --data-binary "@orders.bulk.ndjson"
 (folder-name)                                             (username:password)                       (cloud server)                                  (filename)          
 '''
+
+
