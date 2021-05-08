@@ -209,7 +209,28 @@ service elasticsearch status
 
 ![image](https://user-images.githubusercontent.com/54719289/117538060-5190de00-affc-11eb-86bd-f7b33cff49bf.png)
 
+# Kibana SetUp
+```
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.9.3-x86_64.rpm
+rpm -ivh kibana-7.9.3-x86_64.rpm
+```
+# Open "kibana.yml" and edit below details
+```
+vi /etc/kibana/kibana.yml
+--------------------------------------------------
+  server.port: 5601
+  server.host: "0.0.0.0"
+  elasticsearch.hosts: ["http://localhost:9200"]
+--------------------------------------------------
 
+```
+
+# Start the service
+
+service kibana start
+Check status of Elastic Search
+
+service kibana status
 
 # Loading Data into cloud server command:
 ```
@@ -219,6 +240,24 @@ curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py
 curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@nginx-access-logs-2020-01.bulk.ndjson"
 curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@nginx-access-logs-2020-02.bulk.ndjson"
 (curl-commnd)                                             (username:password)                       (cloud server)                                  (filename)          
+
 '''
 
+
+# Now, we have logs for 3 days :
+
+
+
+# For creating index for each logs:
+
+Click Stack management:
+![image](https://user-images.githubusercontent.com/54719289/117539081-d7168d00-b000-11eb-81da-8aa7b35a393b.png)
+
+Click Index Patterns:
+![image](https://user-images.githubusercontent.com/54719289/117539137-28268100-b001-11eb-90c0-7f8a217a0599.png)
+![image](https://user-images.githubusercontent.com/54719289/117539150-48564000-b001-11eb-8b91-625814842494.png)
+
+
+
+  
 
