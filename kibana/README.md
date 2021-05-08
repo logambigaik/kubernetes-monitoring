@@ -281,5 +281,80 @@ Now index is created for access_logs and try to create the another index for ord
 
 
 
+# For adding user ,we need security permission:
+
+Update the elasticsearch.yml 
+
+```
+vi /etc/elasticsearch/elasticsearch.yml
+--------------------------------------------------
+  network.host: 0.0.0.0
+  http.port: 9200
+  discovery.type: single-node
+  xpack.security.enabled: true
+  xpack.security.transport.ssl.enabled: true
+--------------------------------------------------
+```
+
+View the logs:
+```
+vi /var/log/elasticsearch/elasticsearch.log
+```
+
+Start the service
+
+```
+service elasticsearch start
+```
+
+Check status of Elastic Search
+
+```
+service elasticsearch status
+```
+
+Set Built-in Account Passwords:
+
+```
+cd /usr/share/elasticsearch
+./bin/elasticsearch-setup-passwords interactive
+```
+
+Check elasticsearch in UI: Allow port=9200 in security group :9200
+
+![image](https://user-images.githubusercontent.com/54719289/117544217-5499c780-b018-11eb-9951-e81122099885.png)
+
+![image](https://user-images.githubusercontent.com/54719289/117544258-827f0c00-b018-11eb-955b-ec0b9f261c21.png)
+
+
+Open "kibana.yml" and edit below details
+
+```
+vi /etc/kibana/kibana.yml
+
+
+--------------------------------------------------
+  server.port: 5601
+  server.host: "0.0.0.0"
+  elasticsearch.hosts: ["http://localhost:9200"]
+  elasticsearch.username: "kibana_system"
+  elasticsearch.password: "test123"
+--------------------------------------------------
+```
+Start the service
+```
+service kibana start
+```
+
+Check status of Elastic Search
+
+```
+service kibana status
+```
+Check Kibana in UI: Allow port=5601 in security group :5601
+
+Provide username & password (username : elastic password : test123)  
+
+![image](https://user-images.githubusercontent.com/54719289/117544343-e43f7600-b018-11eb-8491-1f174ae8849d.png)
 
 
