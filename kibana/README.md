@@ -189,11 +189,11 @@ PUT /_template/orders
 ```
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.3-x86_64.rpm
 rpm -ivh elasticsearch-7.9.3-x86_64.rpm
-
 ```
 
-Open "elasticsearch.yml" and edit below details
+# Open "elasticsearch.yml" and edit below details
 
+```
 vi /etc/elasticsearch/elasticsearch.yml
 
 --------------------------------------------------
@@ -201,11 +201,15 @@ vi /etc/elasticsearch/elasticsearch.yml
   http.port: 9200
   discovery.type: single-node
 --------------------------------------------------
-Start the service
+```
 
-service elasticsearch start
-Check status of Elastic Search
-service elasticsearch status
+# Start the service
+
+```service elasticsearch start ```
+
+# Check status of Elastic Search
+
+``` service elasticsearch status ```
 
 ![image](https://user-images.githubusercontent.com/54719289/117538060-5190de00-affc-11eb-86bd-f7b33cff49bf.png)
 
@@ -228,12 +232,13 @@ Note: Include port 56-1 in security group
 
 # Start the service
 
-service kibana start
-Check status of Elastic Search
+``` service kibana start ```
 
-service kibana status
+# Check status of Elastic Search
 
-Check the UI:
+``` service kibana status ```
+
+# Check the UI:
 
 ![image](https://user-images.githubusercontent.com/54719289/117539604-52793e00-b003-11eb-8fb2-d1beb31ab44d.png)
 ![image](https://user-images.githubusercontent.com/54719289/117539646-7dfc2880-b003-11eb-8a16-bdd9550e87b7.png)
@@ -248,7 +253,7 @@ curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py
 curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@nginx-access-logs-2020-02.bulk.ndjson"
 (curl-commnd)                                             (username:password)                       (cloud server)                                  (filename)          
 
-'''
+```
 
 
 # Now, we have logs for 3 days :
@@ -283,9 +288,10 @@ Now index is created for access_logs and try to create the another index for ord
 
 # For adding user ,we need security permission:
 
+```
 Update the elasticsearch.yml 
 
-```
+
 vi /etc/elasticsearch/elasticsearch.yml
 --------------------------------------------------
   network.host: 0.0.0.0
@@ -297,37 +303,38 @@ vi /etc/elasticsearch/elasticsearch.yml
 ```
 
 View the logs:
+
 ```
 vi /var/log/elasticsearch/elasticsearch.log
 ```
 
-Start the service
+# Start the service
 
 ```
 service elasticsearch start
 ```
 
-Check status of Elastic Search
+# Check status of Elastic Search
 
 ```
 service elasticsearch status
 ```
 
-Set Built-in Account Passwords:
+# Set Built-in Account Passwords:
 
 ```
 cd /usr/share/elasticsearch
 ./bin/elasticsearch-setup-passwords interactive
 ```
 
-Check elasticsearch in UI: Allow port=9200 in security group :9200
+# Check elasticsearch in UI: Allow port=9200 in security group :9200
 
 ![image](https://user-images.githubusercontent.com/54719289/117544217-5499c780-b018-11eb-9951-e81122099885.png)
 
 ![image](https://user-images.githubusercontent.com/54719289/117544258-827f0c00-b018-11eb-955b-ec0b9f261c21.png)
 
 
-Open "kibana.yml" and edit below details
+# Open "kibana.yml" and edit below details
 
 ```
 vi /etc/kibana/kibana.yml
@@ -341,17 +348,18 @@ vi /etc/kibana/kibana.yml
   elasticsearch.password: "test123"
 --------------------------------------------------
 ```
-Start the service
+
+# Start the service
 ```
 service kibana start
 ```
 
-Check status of Elastic Search
+# Check status of Elastic Search
 
 ```
 service kibana status
 ```
-Check Kibana in UI: Allow port=5601 in security group :5601
+# Check Kibana in UI: Allow port=5601 in security group :5601
 
 Provide username & password (username : elastic password : test123)  
 
