@@ -366,3 +366,10 @@ Provide username & password (username : elastic password : test123)
 ![image](https://user-images.githubusercontent.com/54719289/117544343-e43f7600-b018-11eb-8491-1f174ae8849d.png)
 
 
+
+# For adding user : Select Stackmanagement from devtool ,and select user under security:
+
+![image](https://user-images.githubusercontent.com/54719289/117544864-426d5880-b01b-11eb-81dd-9539dd1ce607.png)
+![image](https://user-images.githubusercontent.com/54719289/117544872-53b66500-b01b-11eb-81fa-09b89639cd15.png)
+
+
