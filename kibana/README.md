@@ -186,8 +186,10 @@ PUT /_template/orders
 
 
 # Install elasticsearch in cloudsystem and update pport 9200:
+```
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.3-x86_64.rpm
 rpm -ivh elasticsearch-7.9.3-x86_64.rpm
+```
 Open "elasticsearch.yml" and edit below details
 
 vi /etc/elasticsearch/elasticsearch.yml
