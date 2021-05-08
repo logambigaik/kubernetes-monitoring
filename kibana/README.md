@@ -189,7 +189,9 @@ PUT /_template/orders
 ```
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.3-x86_64.rpm
 rpm -ivh elasticsearch-7.9.3-x86_64.rpm
+
 ```
+
 Open "elasticsearch.yml" and edit below details
 
 vi /etc/elasticsearch/elasticsearch.yml
@@ -211,10 +213,12 @@ service elasticsearch status
 
 # Loading Data into cloud server command:
 ```
-tmp cd test-data
+cd test-data
 
-test-data curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.174.68:9200/_bullk --data-binary "@orders.bulk.ndjson"
-(folder-name)                                             (username:password)                       (cloud server)                                  (filename)          
+curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@orders.bulk.ndjson"
+curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@nginx-access-logs-2020-01.bulk.ndjson"
+curl -H "Content-Type: application/x-ndjson" -u elastic:2ZPHE99WTlojotbx2M4jG5Py -XPOST http://35.178.188.146:9200/_bulk --data-binary "@nginx-access-logs-2020-02.bulk.ndjson"
+(curl-commnd)                                             (username:password)                       (cloud server)                                  (filename)          
 '''
 
 
