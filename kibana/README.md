@@ -223,6 +223,7 @@ vi /etc/kibana/kibana.yml
   elasticsearch.hosts: ["http://localhost:9200"]
 --------------------------------------------------
 
+Note: Include port 56-1 in security group
 ```
 
 # Start the service
@@ -231,6 +232,12 @@ service kibana start
 Check status of Elastic Search
 
 service kibana status
+
+Check the UI:
+
+![image](https://user-images.githubusercontent.com/54719289/117539604-52793e00-b003-11eb-8fb2-d1beb31ab44d.png)
+![image](https://user-images.githubusercontent.com/54719289/117539646-7dfc2880-b003-11eb-8a16-bdd9550e87b7.png)
+
 
 # Loading Data into cloud server command:
 ```
@@ -257,7 +264,22 @@ Click Index Patterns:
 ![image](https://user-images.githubusercontent.com/54719289/117539137-28268100-b001-11eb-90c0-7f8a217a0599.png)
 ![image](https://user-images.githubusercontent.com/54719289/117539150-48564000-b001-11eb-8b91-625814842494.png)
 
+![image](https://user-images.githubusercontent.com/54719289/117539672-98360680-b003-11eb-9d41-655ead480d5e.png)
 
 
-  
+# Now, Select access-logs*
+
+![image](https://user-images.githubusercontent.com/54719289/117539807-2ad6a580-b004-11eb-8eb8-cb667ee26e88.png)
+
+# Select @timestamp:
+![image](https://user-images.githubusercontent.com/54719289/117539877-6cffe700-b004-11eb-8cf3-6819c4fa9aea.png)
+![image](https://user-images.githubusercontent.com/54719289/117539923-9f114900-b004-11eb-9b0e-553bea1a15de.png)
+
+Now index is created for access_logs and try to create the another index for orders:
+
+![image](https://user-images.githubusercontent.com/54719289/117540029-22cb3580-b005-11eb-9aac-91fb980aa0c6.png)
+
+
+
+
 
