@@ -203,8 +203,10 @@ Start the service
 
 service elasticsearch start
 Check status of Elastic Search
-
 service elasticsearch status
+
+![image](https://user-images.githubusercontent.com/54719289/117538060-5190de00-affc-11eb-86bd-f7b33cff49bf.png)
+
 
 
 # Loading Data into cloud server command:
